@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #content {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>This is a simple HTML page that demonstrates how to use JavaScript to interact with the DOM.</p>
+
+    <button class="button" onclick="changeContent()">Click Me!</button>
+
+    <div id="content">
+        <p id="text">This is some text inside the content div.</p>
+    </div>
+
+    <script>
+        function changeContent() {
+            // Get the element with ID 'text'
+            var textElement = document.getElementById('text');
+            
+            // Change the content of the text element
+            textElement.innerHTML = 'The content has been changed!';
+
+            // Change the background color of the content div
+            var contentDiv = document.getElementById('content');
+            contentDiv.style.backgroundColor = '#f0f0f0';
+
+            // Log a message to the console
+            console.log('Content changed!');
+        }
+    </script>
+</body>
+</html>

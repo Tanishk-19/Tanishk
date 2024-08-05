@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav {
+            margin: 1em 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        form label, form input {
+            margin-bottom: 1em;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5em;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #events-list {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our NGO</h1>
+        <nav>
+            <a href="#home" onclick="showSection('home')">Home</a>
+            <a href="#login" onclick="showSection('login')">Login</a>
+            <a href="#donate" onclick="showSection('donate')">Donate</a>
+        </nav>
+    </header>
+    <main>
+        <section id="home" style="display: block;">
+            <h2>About Us</h2>
+            <p>We are a non-profit organization dedicated to making a positive impact in our community.</p>
+            <h2>Upcoming Events</h2>
+            <ul id="events-list"></ul>
+        </section>
+        <section id="login" style="display: none;">
+            <h1>Login to Your Account</h1>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+        <section id="donate" style="display: none;">
+            <h2>Support Our Work</h2>
+            <p>You can support our work by donating through the QR code below:</p>
+            <img src="https://via.placeholder.com/150" alt="QR Code for Donations">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Our NGO. All rights reserved.</p>
+    </footer>
+    <script>
+        // Example event data
+        const events = [
+            { title: "Community Clean-Up", date: "2024-08-01" },
+            { title: "Fundraising Dinner", date: "2024-09-10" },
+            { title: "Volunteer Training", date: "2024-10-05" }
+        ];
+
+        // Populate events list on the home page
+        document.addEventListener('DOMContentLoaded', () => {
+            const eventsList = document.getElementById('events-list');
+            if (eventsList) {
+                events.forEach(event => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${event.title} - ${event.date}`;
+                    eventsList.appendChild(listItem);
+                });
+            }
+
+            // Handle login form submission
+            const loginForm = document.getElementById('login-form');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+      
